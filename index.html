@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -9,8 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #7289DA;
-            --secondary-color: #1a73e8;
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
             --dark-color: #1E1E1E;
             --light-color: #FFFFFF;
             --youtube-red: #FF0000;
@@ -27,7 +26,7 @@
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #2a2a2a 100%);
+            background: linear-gradient(rgba(15, 15, 15, 0.85), rgba(30, 30, 30, 0.85)), url('assets/Rapnight.jpg') center/cover no-repeat fixed;
             color: var(--light-color);
             min-height: 100vh;
             overflow-x: hidden;
@@ -97,7 +96,7 @@
         }
 
         .nav-links a:hover {
-            background: rgba(114, 137, 218, 0.2);
+            background: rgba(76, 175, 80, 0.2);
             color: var(--primary-color);
         }
 
@@ -236,20 +235,6 @@
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1.5rem;
             margin-bottom: 3rem;
-
-        .streamers-section {
-            background: 
-            linear-gradient(rgba(30, 30, 30, 0.85), rgba(30, 30, 30, 0.85)),
-            url('assets/rapnight.jpg') center/cover no-repeat;
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            margin: 3rem 0;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .streamer-card {
-            background: rgba(20, 20, 20, 0.7);
-            backdrop-filter: blur(8px);
         }
 
         .streamer-card {
@@ -269,126 +254,53 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .streamer-avatar-container {
-         position: relative;
-         widh: 100px;
-         height: 100px;
-         margin: 0 auto 1rem;
-        }
-   
         .streamer-avatar {
-         width: 100%;
-         height: 100%;
-         border-radius: 50%;
-         object-fit: cover;
-         border: 3px solid var(--primary-color);
-         box-shadow: 0 4px 15px rgba(114, 137, 218, 0.3);
-         transition: transform 0.3s ease;
-        }
-     
-        .streamer-card:hover .streamer-avatar {
-         transform: scale(1.05);
-        }
-   
-        .live-indicator {
-         position: absolute;
-         bottom: -5px;
-         right: 50%;
-         transform: translateX(50%);
-         background: #FF0000;
-         color: white;
-         padding: 0.2rem 0.5rem;
-         border-radius: 15px;
-         font-size: 0.7rem;
-         font-weight: bold;
-         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-         animation: pulse 1.5s infinite;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
-         @keyframes pulse {
-         0% { opacity: 1; }
-         50% { opacity: 0.7; }
-         100% { opacity: 1; }
-        }
-    
         .streamer-name {
-         font-size: 1.2rem;
-         margin-bottom: 0.5rem;
-         text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
         }
 
         .streamer-platform {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         gap: 0.5rem;
-         color: var(--kick-green);
-         font-weight: 500;
-         margin-bottom: 1rem;
-        }
-         
-        .streamer-platform i {
-         font-size: 1rem;
-        }
-         
-        .streamer-btn {
-         display: inline-block;
-         padding: 0.6rem 1.5rem;
-         background: var(--kick-green);
-         color: white;
-         border-radius: 30px;
-         text-decoration: none;
-         font-weight: 500;
-         transition: var(--transition);
-         margin-top: 0.5rem;
-         width: 80%;
-         text-align: center;
-        }
-
-        .streamer-btn:hover {
-         background: #5a9e46;
-         transform: translateY(-2px);
-         box-shadow: 0 5px 15px rgba(118, 192, 87, 0.4);
-        }
-
-        .live-badge {
-         font-size: 1rem;
-         background: #FF0000;
-         color: white;
-         padding: 0.3rem 0.8rem;
-         border-radius: 20px;
-         margin-right: 0.8rem;
-         vertical-align: middle;
-        }
-
-        .live-badge i {
-         font-size: 0.6rem;
-         vertical-align: middle;
-         margin-right: 0.3rem;
-        }
-
-
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 1rem;
         }
 
         .streamer-platform i {
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         .streamer-btn {
             display: inline-block;
             padding: 0.6rem 1.5rem;
-            background: var(--kick-green);
+            background: var(--primary-color);
             color: white;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
             margin-top: 0.5rem;
+            width: 80%;
+            text-align: center;
         }
 
         .streamer-btn:hover {
-            background: #5a9e46;
+            background: #3d8b40;
             transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
         }
 
         .videos-container {
@@ -699,79 +611,63 @@
                 </div>
             </div>
         </section>
-
-                  <section id="streamers" class="streamers-section fade-in delay-1">
-    <h2 class="section-title">البث المباشر <span class="live-badge">مباشر <i class="fas fa-circle"></i></span></h2>
-    
-    <div class="streamers-container">
-
-        <div class="streamer-card fade-in delay-2">
-            <div class="streamer-avatar-container">
-                <img src="https://i.imgur.com/JqYeYnW.jpg" alt="ilyaselmaliki" class="streamer-avatar">
-                <div class="live-indicator">مباشر</div>
-            </div>
-            <h3 class="streamer-name">ilyaselmaliki</h3>
-            <div class="streamer-platform">
-                <i class="fas fa-tv"></i>
-                <span>Kick</span>
-            </div>
-            <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank">انضم الآن</a>
-        </div>
         
-        <div class="streamer-card fade-in delay-1">
-            <div class="streamer-avatar-container">
-                <img src="https://i.imgur.com/pX9mQ8d.jpg" alt="vodkafunky" class="streamer-avatar">
-                <div class="live-indicator">مباشر</div>
+        <section id="streamers" class="fade-in delay-1">
+            <h2 class="section-title">البث المباشر</h2>
+            
+            <div class="streamers-container">
+                <div class="streamer-card fade-in delay-2">
+                    <img src="images/streamers/ilyaselmaliki.jpg" alt="ilyaselmaliki" class="streamer-avatar">
+                    <h3 class="streamer-name">ilyaselmaliki</h3>
+                    <div class="streamer-platform">
+                        <i class="fas fa-tv"></i>
+                        <span>Kick</span>
+                    </div>
+                    <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank">مشاهدة</a>
+                </div>
+                
+                <div class="streamer-card fade-in delay-1">
+                    <img src="images/streamers/vodka.jpg" alt="vodkafunky" class="streamer-avatar">
+                    <h3 class="streamer-name">vodkafunky</h3>
+                    <div class="streamer-platform">
+                        <i class="fas fa-tv"></i>
+                        <span>Kick</span>
+                    </div>
+                    <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank">مشاهدة</a>
+                </div>
+                
+                <div class="streamer-card fade-in">
+                    <img src="images/streamers/bougassa.jpg" alt="Bougassaa" class="streamer-avatar">
+                    <h3 class="streamer-name">Bougassaa</h3>
+                    <div class="streamer-platform">
+                        <i class="fas fa-tv"></i>
+                        <span>Kick</span>
+                    </div>
+                    <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank">مشاهدة</a>
+                </div>
+                
+                <div class="streamer-card fade-in delay-1">
+                    <img src="images/streamers/nahoule.jpg" alt="Nahoule82k" class="streamer-avatar">
+                    <h3 class="streamer-name">Nahoule82k</h3>
+                    <div class="streamer-platform">
+                        <i class="fas fa-tv"></i>
+                        <span>Kick</span>
+                    </div>
+                    <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank">مشاهدة</a>
+                </div>
+                
+                <div class="streamer-card fade-in delay-2">
+                    <img src="images/streamers/toto.jpg" alt="El Grandé Toto" class="streamer-avatar">
+                    <h3 class="streamer-name">El Grandé Toto</h3>
+                    <div class="streamer-platform">
+                        <i class="fas fa-tv"></i>
+                        <span>Kick</span>
+                    </div>
+                    <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank">مشاهدة</a>
+                </div>
             </div>
-            <h3 class="streamer-name">vodkafunky</h3>
-            <div class="streamer-platform">
-                <i class="fas fa-tv"></i>
-                <span>Kick</span>
-            </div>
-            <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank">انضم الآن</a>
-        </div>
+        </section>
         
-        <div class="streamer-card fade-in">
-            <div class="streamer-avatar-container">
-                <img src="https://i.imgur.com/LkZmWQx.jpg" alt="Bougassaa" class="streamer-avatar">
-                <div class="live-indicator">مباشر</div>
-            </div>
-            <h3 class="streamer-name">Bougassaa</h3>
-            <div class="streamer-platform">
-                <i class="fas fa-tv"></i>
-                <span>Kick</span>
-            </div>
-            <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank">انضم الآن</a>
-        </div>
-        
-        <div class="streamer-card fade-in delay-1">
-            <div class="streamer-avatar-container">
-                <img src="https://i.imgur.com/VvJ7h2F.jpg" alt="Nahoule82k" class="streamer-avatar">
-                <div class="live-indicator">مباشر</div>
-            </div>
-            <h3 class="streamer-name">Nahoule82k</h3>
-            <div class="streamer-platform">
-                <i class="fas fa-tv"></i>
-                <span>Kick</span>
-            </div>
-            <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank">انضم الآن</a>
-        </div>
-        
-        <div class="streamer-card fade-in delay-2">
-            <div class="streamer-avatar-container">
-                <img src="https://i.imgur.com/zYqX9jG.jpg" alt="El Grandé Toto" class="streamer-avatar">
-                <div class="live-indicator">مباشر</div>
-            </div>
-            <h3 class="streamer-name">El Grandé Toto</h3>
-            <div class="streamer-platform">
-                <i class="fas fa-tv"></i>
-                <span>Kick</span>
-            </div>
-            <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank">انضم الآن</a>
-        </div>
-    </div>
-</section>
-
         <section id="videos" class="fade-in delay-2">
             <h2 class="section-title">أحدث الفيديوهات</h2>
             
