@@ -1,3 +1,6 @@
+سأقوم بتعديل كود HTML لتنفيذ التغييرات المطلوبة مع إضافة بعض التحسينات الإضافية. إليك الكود المعدل مع التغييرات:
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -340,6 +343,11 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
         }
 
         .play-icon {
@@ -350,6 +358,7 @@
             font-size: 3rem;
             color: rgba(255, 255, 255, 0.8);
             transition: var(--transition);
+            z-index: 1;
         }
 
         .video-card:hover .play-icon {
@@ -388,6 +397,7 @@
             background: rgba(0,0,0,0.5);
             padding: 2px 8px;
             border-radius: 4px;
+            font-size: 0.8rem;
         }
 
         .footer {
@@ -729,7 +739,7 @@
             <div class="videos-container">
                 <a href="https://www.youtube.com/watch?v=nVYAEtBvmgA" class="video-card fade-in" target="_blank">
                     <div class="video-thumbnail">
-                        <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=BIG+A" alt="فيديو 1">
+                        <img src="images/artist.jpg" alt="BIG A">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -745,7 +755,7 @@
                 
                 <a href="https://www.youtube.com/watch?v=YED2ShSBU10" class="video-card fade-in delay-1" target="_blank">
                     <div class="video-thumbnail">
-                        <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=mirv48" alt="فيديو 2">
+                        <img src="images/mirv48.jpg" alt="mirv48">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
@@ -761,14 +771,14 @@
                 
                 <a href="https://www.youtube.com/watch?v=GKdfyp3-sTA" class="video-card fade-in delay-2" target="_blank">
                     <div class="video-thumbnail">
-                        <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=Bobony" alt="فيديو 3">
+                        <img src="images/shaoline.jpg" alt="Shaoline">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
                         <a href="https://discord.gg/bobonyfamily" class="watermark" target="_blank">Bobony Family</a>
                     </div>
                     <div class="video-info">
-                        <h3 class="video-title">حفل مباشر من Bobony Family</h3>
+                        <h3 class="video-title">Shaoline - BARD & SKHON</h3>
                         <div class="video-meta">
                             <span>50K مشاهدة</span>
                             <span>منذ شهر</span>
