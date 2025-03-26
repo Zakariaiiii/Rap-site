@@ -15,6 +15,7 @@
             --youtube-red: #FF0000;
             --instagram-purple: #E1306C;
             --kick-green: #76C057;
+            --discord-blue: #5865F2;
             --transition: all 0.3s ease;
         }
 
@@ -315,6 +316,9 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: var(--transition);
+            position: relative;
+            text-decoration: none;
+            color: inherit;
         }
 
         .video-card:hover {
@@ -371,6 +375,19 @@
             justify-content: space-between;
             color: #b3b3b3;
             font-size: 0.9rem;
+        }
+
+        .watermark {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            color: var(--discord-blue);
+            font-weight: bold;
+            text-decoration: none;
+            z-index: 2;
+            background: rgba(0,0,0,0.5);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
 
         .footer {
@@ -609,6 +626,44 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="artist-card fade-in delay-1">
+                    <div class="artist-image-container">
+                        <img src="images/shaoline.jpg" alt="Shaoline" class="artist-image">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Shaoline</h3>
+                        <span class="artist-role">فنان راب</span>
+                        <p class="artist-bio">فنان مميز بأسلوبه الخاص</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/shaolineee1/" class="social-link instagram-link" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Shaolineee" class="social-link youtube-link" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="artist-card fade-in delay-2">
+                    <div class="artist-image-container">
+                        <img src="images/aessa.jpg" alt="Aessa" class="artist-image">
+                    </div>
+                    <div class="artist-info">
+                        <h3 class="artist-name">Aessa</h3>
+                        <span class="artist-role">فنان راب</span>
+                        <p class="artist-bio">موهبة جديدة في عالم الراب</p>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/aessa.17" class="social-link instagram-link" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@Aessa" class="social-link youtube-link" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -672,7 +727,7 @@
             <h2 class="section-title">أحدث الفيديوهات</h2>
             
             <div class="videos-container">
-                <div class="video-card fade-in">
+                <a href="https://www.youtube.com/watch?v=nVYAEtBvmgA" class="video-card fade-in" target="_blank">
                     <div class="video-thumbnail">
                         <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=BIG+A" alt="فيديو 1">
                         <div class="play-icon">
@@ -686,9 +741,9 @@
                             <span>منذ أسبوع</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 
-                <div class="video-card fade-in delay-1">
+                <a href="https://www.youtube.com/watch?v=YED2ShSBU10" class="video-card fade-in delay-1" target="_blank">
                     <div class="video-thumbnail">
                         <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=mirv48" alt="فيديو 2">
                         <div class="play-icon">
@@ -702,14 +757,15 @@
                             <span>منذ 3 أيام</span>
                         </div>
                     </div>
-                </div>
+                </a>
                 
-                <div class="video-card fade-in delay-2">
+                <a href="https://www.youtube.com/watch?v=GKdfyp3-sTA" class="video-card fade-in delay-2" target="_blank">
                     <div class="video-thumbnail">
                         <img src="https://via.placeholder.com/800x450/1E1E1E/7289DA?text=Bobony" alt="فيديو 3">
                         <div class="play-icon">
                             <i class="fas fa-play"></i>
                         </div>
+                        <a href="https://discord.gg/bobonyfamily" class="watermark" target="_blank">Bobony Family</a>
                     </div>
                     <div class="video-info">
                         <h3 class="video-title">حفل مباشر من Bobony Family</h3>
@@ -718,7 +774,7 @@
                             <span>منذ شهر</span>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
         </section>
     </main>
