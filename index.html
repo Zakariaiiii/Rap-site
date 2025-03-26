@@ -7,9 +7,21 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: white;
+            margin: 0;
             padding: 20px;
             line-height: 1.6;
+            background-image: url('images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+        }
+        .content-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px auto;
         }
         .artist-info {
             margin: 30px auto;
@@ -27,26 +39,33 @@
         }
         footer {
             margin-top: 40px;
-            color: #666;
+            color: #fff;
+        }
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the rap community</h1>
-    
-    <div class="artist-info">
-        <img src="images/artist.jpg" alt="BIG A" class="artist-image">
-        <h2>BIG A</h2>
+    <div class="content-box">
+        <h1>Welcome to the rap community</h1>
         
-        <div class="social-links">
-            <a href="https://www.instagram.com/callme_big_a" style="color: #E1306C;">Instagram</a>
-            <a href="https://www.youtube.com/@BIG_A_off" style="color: #FF0000;">YouTube</a>
+        <div class="artist-info">
+            <img src="images/artist.jpg" alt="BIG A" class="artist-image">
+            <h2>BIG A</h2>
+            
+            <div class="social-links">
+                <a href="https://www.instagram.com/callme_big_a" style="color: #E1306C;">Instagram</a>
+                <a href="https://www.youtube.com/@BIG_A_off" style="color: #FF0000;">YouTube</a>
+            </div>
         </div>
-    </div>
 
-    <footer>
-        <p>Welcome to Zakaria Lahmidi website</p>
-        <p>Insta: zakaria_eldrissi</p>
-    </footer>
+        <footer>
+            <p>Welcome to Zakaria Lahmidi website</p>
+            <p>Insta: zakaria_eldrissi</p>
+        </footer>
+    </div>
 </body>
 </html>
