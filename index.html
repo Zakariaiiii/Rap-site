@@ -255,25 +255,105 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
+        .streamer-avatar-container {
+         position: relative;
+         widh: 100px;
+         height: 100px;
+         margin: 0 auto 1rem;
+        }
+   
         .streamer-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary-color);
+         width: 100%;
+         height: 100%;
+         border-radius: 50%;
+         object-fit: cover;
+         border: 3px solid var(--primary-color);
+         box-shadow: 0 4px 15px rgba(114, 137, 218, 0.3);
+         transition: transform 0.3s ease;
+        }
+     
+        .streamer-card:hover .streamer-avatar {
+         transform: scale(1.05);
+        }
+   
+        .live-indicator {
+         position: absolute;
+         bottom: -5px;
+         right: 50%;
+         transform: translateX(50%);
+         background: #FF0000;
+         color: white;
+         padding: 0.2rem 0.5rem;
+         border-radius: 15px;
+         font-size: 0.7rem;
+         font-weight: bold;
+         box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+         animation: pulse 1.5s infinite;
         }
 
+         @keyframes pulse {
+         0% { opacity: 1; }
+         50% { opacity: 0.7; }
+         100% { opacity: 1; }
+        }
+    
         .streamer-name {
-            font-size: 1.2rem;
-            font-weight: 500;
+         font-size: 1.2rem;
+         margin-bottom: 0.5rem;
+         text-align: center;
         }
 
         .streamer-platform {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--kick-green);
-            font-weight: 500;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         gap: 0.5rem;
+         color: var(--kick-green);
+         font-weight: 500;
+         margin-bottom: 1rem;
+        }
+         
+        .streamer-platform i {
+         font-size: 1rem;
+        }
+         
+        .streamer-btn {
+         display: inline-block;
+         padding: 0.6rem 1.5rem;
+         background: var(--kick-green);
+         color: white;
+         border-radius: 30px;
+         text-decoration: none;
+         font-weight: 500;
+         transition: var(--transition);
+         margin-top: 0.5rem;
+         width: 80%;
+         text-align: center;
+        }
+
+        .streamer-btn:hover {
+         background: #5a9e46;
+         transform: translateY(-2px);
+         box-shadow: 0 5px 15px rgba(118, 192, 87, 0.4);
+        }
+
+        .live-badge {
+         font-size: 1rem;
+         background: #FF0000;
+         color: white;
+         padding: 0.3rem 0.8rem;
+         border-radius: 20px;
+         margin-right: 0.8rem;
+         vertical-align: middle;
+        }
+
+        .live-badge i {
+         font-size: 0.6rem;
+         vertical-align: middle;
+         margin-right: 0.3rem;
+        }
+
+
         }
 
         .streamer-platform i {
@@ -605,63 +685,79 @@
                 </div>
             </div>
         </section>
-        
-        <section id="streamers" class="fade-in delay-1">
-            <h2 class="section-title">البث المباشر</h2>
-            
-            <div class="streamers-container">
-                <div class="streamer-card fade-in delay-2">
-                    <img src="https://via.placeholder.com/150/7289DA/FFFFFF?text=ilyas" alt="ilyaselmaliki" class="streamer-avatar">
-                    <h3 class="streamer-name">ilyaselmaliki</h3>
-                    <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
-                        <span>Kick</span>
-                    </div>
-                    <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank">مشاهدة</a>
-                </div>
-                
-                <div class="streamer-card fade-in delay-1">
-                    <img src="https://via.placeholder.com/150/7289DA/FFFFFF?text=vodka" alt="vodkafunky" class="streamer-avatar">
-                    <h3 class="streamer-name">vodkafunky</h3>
-                    <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
-                        <span>Kick</span>
-                    </div>
-                    <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank">مشاهدة</a>
-                </div>
-                
-                <div class="streamer-card fade-in">
-                    <img src="https://via.placeholder.com/150/7289DA/FFFFFF?text=Bougassaa" alt="Bougassaa" class="streamer-avatar">
-                    <h3 class="streamer-name">Bougassaa</h3>
-                    <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
-                        <span>Kick</span>
-                    </div>
-                    <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank">مشاهدة</a>
-                </div>
-                
-                <div class="streamer-card fade-in delay-1">
-                    <img src="https://via.placeholder.com/150/7289DA/FFFFFF?text=Nahoule" alt="Nahoule82k" class="streamer-avatar">
-                    <h3 class="streamer-name">Nahoule82k</h3>
-                    <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
-                        <span>Kick</span>
-                    </div>
-                    <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank">مشاهدة</a>
-                </div>
-                
-                <div class="streamer-card fade-in delay-2">
-                    <img src="https://via.placeholder.com/150/7289DA/FFFFFF?text=Toto" alt="El Grandé Toto" class="streamer-avatar">
-                    <h3 class="streamer-name">El Grandé Toto</h3>
-                    <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
-                        <span>Kick</span>
-                    </div>
-                    <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank">مشاهدة</a>
-                </div>
+
+                  <section id="streamers" class="fade-in delay-1">
+    <h2 class="section-title">البث المباشر <span class="live-badge">مباشر <i class="fas fa-circle"></i></span></h2>
+    
+    <div class="streamers-container">
+
+        <div class="streamer-card fade-in delay-2">
+            <div class="streamer-avatar-container">
+                <img src="https://i.imgur.com/JqYeYnW.jpg" alt="ilyaselmaliki" class="streamer-avatar">
+                <div class="live-indicator">مباشر</div>
             </div>
-        </section>
+            <h3 class="streamer-name">ilyaselmaliki</h3>
+            <div class="streamer-platform">
+                <i class="fas fa-tv"></i>
+                <span>Kick</span>
+            </div>
+            <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank">انضم الآن</a>
+        </div>
         
+        <div class="streamer-card fade-in delay-1">
+            <div class="streamer-avatar-container">
+                <img src="https://i.imgur.com/pX9mQ8d.jpg" alt="vodkafunky" class="streamer-avatar">
+                <div class="live-indicator">مباشر</div>
+            </div>
+            <h3 class="streamer-name">vodkafunky</h3>
+            <div class="streamer-platform">
+                <i class="fas fa-tv"></i>
+                <span>Kick</span>
+            </div>
+            <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank">انضم الآن</a>
+        </div>
+        
+        <div class="streamer-card fade-in">
+            <div class="streamer-avatar-container">
+                <img src="https://i.imgur.com/LkZmWQx.jpg" alt="Bougassaa" class="streamer-avatar">
+                <div class="live-indicator">مباشر</div>
+            </div>
+            <h3 class="streamer-name">Bougassaa</h3>
+            <div class="streamer-platform">
+                <i class="fas fa-tv"></i>
+                <span>Kick</span>
+            </div>
+            <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank">انضم الآن</a>
+        </div>
+        
+        <div class="streamer-card fade-in delay-1">
+            <div class="streamer-avatar-container">
+                <img src="https://i.imgur.com/VvJ7h2F.jpg" alt="Nahoule82k" class="streamer-avatar">
+                <div class="live-indicator">مباشر</div>
+            </div>
+            <h3 class="streamer-name">Nahoule82k</h3>
+            <div class="streamer-platform">
+                <i class="fas fa-tv"></i>
+                <span>Kick</span>
+            </div>
+            <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank">انضم الآن</a>
+        </div>
+        
+        <div class="streamer-card fade-in delay-2">
+            <div class="streamer-avatar-container">
+                <img src="https://i.imgur.com/zYqX9jG.jpg" alt="El Grandé Toto" class="streamer-avatar">
+                <div class="live-indicator">مباشر</div>
+            </div>
+            <h3 class="streamer-name">El Grandé Toto</h3>
+            <div class="streamer-platform">
+                <i class="fas fa-tv"></i>
+                <span>Kick</span>
+            </div>
+            <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank">انضم الآن</a>
+        </div>
+    </div>
+</section>
+
         <section id="videos" class="fade-in delay-2">
             <h2 class="section-title">أحدث الفيديوهات</h2>
             
