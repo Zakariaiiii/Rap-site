@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rap Community | BIG A & mirv48</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: url('images/background.jpg') no-repeat center center fixed;
             background-size: cover;
             color: white;
@@ -30,19 +31,23 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            color: #ff0000;
-            font-weight: bold;
-            font-size: 24px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             z-index: 100;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 5px 15px;
-            border-radius: 20px;
-            border: 2px solid #ff0000;
         }
         .artist-badge a {
-            color: #ff0000;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: rgba(114, 137, 218, 0.8);
+            padding: 8px 15px;
+            border-radius: 30px;
+            border: 2px solid rgba(114, 137, 218, 0.8);
             text-decoration: none;
+            transition: all 0.3s;
+        }
+        .artist-badge a:hover {
+            background: rgba(91, 110, 174, 0.8);
+            color: white;
         }
         .social-links {
             display: flex;
@@ -58,24 +63,123 @@
             padding: 10px 20px;
             border-radius: 30px;
             transition: all 0.3s;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
         .social-link:hover {
             transform: translateY(-3px);
+            background: rgba(0, 0, 0, 0.8);
         }
-        .kick-chrif-btn {
-            background-color: #4CAF50; /* أخضر */
+        .youtube-btn {
+            background: linear-gradient(45deg, rgba(255, 0, 0, 0.8), rgba(204, 0, 0, 0.8));
             color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
+            padding: 12px 30px;
+            border-radius: 50px;
             font-weight: bold;
             text-decoration: none;
             transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
         }
-        .kick-chrif-btn:hover {
+        .youtube-btn:hover {
             transform: translateY(-3px);
-            background-color: #45a049;
+            background: linear-gradient(45deg, rgba(204, 0, 0, 0.8), rgba(255, 0, 0, 0.8));
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
         }
+        .instagram-btn {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg') no-repeat center center;
+            background-size: cover;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+        }
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        .kick-btn {
+            background-color: rgba(76, 175, 80, 0.8);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+        .kick-btn:hover {
+            transform: translateY(-3px);
+            background-color: rgba(69, 160, 73, 0.8);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+        }
+        .kick-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .artist-card {
+            text-align: center;
+            margin: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .artist-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .artist-name-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            border-radius: 30px;
+            padding: 10px 20px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .artist-name-btn:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .artist-name-btn:active {
+            transform: scale(0.95);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -95,27 +199,31 @@
     <div class="content">
         <div class="artist-card big-a-card">
             <img src="images/artist.jpg" alt="BIG A" class="artist-image big-a-img">
-            <h1 style="text-align: center; margin-bottom: 10px;">BIG A</h1>
+            <button class="artist-name-btn">BIG A</button>
             <h2 style="text-align: center; color: #1a73e8; margin-top: 0;">Rap Artist</h2>
             <div class="social-links">
-                <a href="https://www.instagram.com/callme_big_a" class="social-link instagram">Instagram</a>
-                <a href="https://www.youtube.com/@BIG_A_off" class="social-link youtube">YouTube</a>
+                <a href="https://www.instagram.com/callme_big_a" class="instagram-btn">Instagram</a>
+                <a href="https://www.youtube.com/@BIG_A_off" class="youtube-btn">YouTube</a>
             </div>
         </div>
         
         <div class="artist-card mirv48-card">
             <img src="images/mirv48.jpg" alt="mirv48" class="artist-image mirv48-img">
-            <h1 style="text-align: center; margin-bottom: 10px;">mirv48</h1>
+            <button class="artist-name-btn">mirv48</button>
             <h2 style="text-align: center; color: #4CAF50; margin-top: 0;">Rap Artist</h2>
             <div class="social-links">
-                <a href="https://www.instagram.com/mirv48" class="social-link instagram">Instagram</a>
-                <a href="https://youtube.com/@mirv48" class="social-link youtube">YouTube</a>
+                <a href="https://www.instagram.com/mirv48" class="instagram-btn">Instagram</a>
+                <a href="https://youtube.com/@mirv48" class="youtube-btn">YouTube</a>
             </div>
         </div>
-        
+
         <div class="social-links">
-            <a href="https://kick.com/ilyaselmaliki" class="kick-chrif-btn" target="_blank">kick chrif</a>
-            <!-- Add 5 more buttons below with their corresponding links -->
+            <a href="https://kick.com/ilyaselmaliki" class="kick-btn" target="_blank">ilyaselmaliki</a>
+            <a href="https://kick.com/vodkafunky" class="kick-btn" target="_blank">vodkafunky</a>
+            <a href="https://kick.com/bougassaa" class="kick-btn" target="_blank">Bougassaa</a>
+            <a href="https://kick.com/nahoule82k" class="kick-btn" target="_blank">Nahoule82k</a>
+            <a href="https://kick.com/elgrandetotoff" class="kick-btn" target="_blank">elgrandetotoff</a>
+            <a href="https://kick.com/ahmedsabiri" class="kick-btn" target="_blank">AhmedSabiri</a>
         </div>
 
         <footer>
