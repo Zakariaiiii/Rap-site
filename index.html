@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مجتمع الراب | BIG A & mirv48</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta name="description" content="مجتمع الراب العربي - اكتشف فناني الراب مثل BIG A و mirv48 ومشاهير البث المباشر وأحدث الفيديوهات">
+    <meta property="og:title" content="مجتمع الراب | BIG A & mirv48">
+    <meta property="og:description" content="الموقع الرسمي لمجتمع الراب العربي">
+    <meta property="og:image" content="https://your-vercel-app.vercel.app/images/artist.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- تحسين تحميل الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap"></noscript>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="manifest" href="/manifest.json">
     <style>
         :root {
             --primary-color: #4CAF50;
@@ -31,6 +43,14 @@
             color: var(--light-color);
             min-height: 100vh;
             overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* تحسينات الأداء */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .header {
@@ -96,9 +116,11 @@
             border-radius: 5px;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover, 
+        .nav-links a:focus {
             background: rgba(76, 175, 80, 0.2);
             color: var(--primary-color);
+            outline: none;
         }
 
         .menu-toggle {
@@ -106,6 +128,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--light-color);
+            background: none;
+            border: none;
         }
 
         .main-content {
@@ -296,6 +320,8 @@
             margin-top: 0.5rem;
             width: 80%;
             text-align: center;
+            border: none;
+            cursor: pointer;
         }
 
         .streamer-btn:hover {
@@ -477,6 +503,8 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--light-color);
+            background: none;
+            border: none;
         }
 
         .overlay {
@@ -497,19 +525,23 @@
             visibility: visible;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* تحسينات للرسوم المتحركة */
         .fade-in {
-            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
+        .delay-1 { transition-delay: 0.2s; }
+        .delay-2 { transition-delay: 0.4s; }
+        .delay-3 { transition-delay: 0.6s; }
+
+        /* تحسينات للشاشات الصغيرة */
         @media (max-width: 992px) {
             .nav-links {
                 display: none;
@@ -554,62 +586,93 @@
             .artist-card, .streamer-card, .video-card {
                 max-width: 100%;
             }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .artist-card, .streamer-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* تحسينات إمكانية الوصول */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header class="header" role="banner">
         <div class="logo-container">
-            <a href="#" class="logo">
-                <i class="fas fa-microphone-alt"></i>
+            <a href="#" class="logo" aria-label="الصفحة الرئيسية">
+                <i class="fas fa-microphone-alt" aria-hidden="true"></i>
                 <span>مجتمع الراب</span>
             </a>
-            <span class="designer-credit">تصميم: <a href="https://www.instagram.com/zakariae_lahmidi/" target="_blank">zakariae lahmidi</a></span>
+            <span class="designer-credit">تصميم: <a href="https://www.instagram.com/zakariae_lahmidi/" target="_blank" rel="noopener noreferrer">zakariae lahmidi</a></span>
         </div>
         
-        <nav class="nav-links">
-            <a href="#artists">الفنانين</a>
-            <a href="#streamers">البث المباشر</a>
-            <a href="#videos">الفيديوهات</a>
+        <nav class="nav-links" role="navigation">
+            <a href="#artists" class="nav-link" aria-label="قسم الفنانين">الفنانين</a>
+            <a href="#streamers" class="nav-link" aria-label="قسم البث المباشر">البث المباشر</a>
+            <a href="#videos" class="nav-link" aria-label="قسم الفيديوهات">الفيديوهات</a>
         </nav>
         
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
+        <button class="menu-toggle" aria-label="فتح القائمة" aria-expanded="false" onclick="toggleMenu()">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+            <span class="sr-only">القائمة</span>
+        </button>
     </header>
     
-    <div class="mobile-menu" id="mobileMenu">
-        <div class="close-menu" onclick="toggleMenu()">
-            <i class="fas fa-times"></i>
-        </div>
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+        <button class="close-menu" aria-label="إغلاق القائمة" onclick="toggleMenu()">
+            <i class="fas fa-times" aria-hidden="true"></i>
+            <span class="sr-only">إغلاق</span>
+        </button>
         <nav class="nav-links">
-            <a href="#artists" onclick="toggleMenu()">الفنانين</a>
-            <a href="#streamers" onclick="toggleMenu()">البث المباشر</a>
-            <a href="#videos" onclick="toggleMenu()">الفيديوهات</a>
+            <a href="#artists" class="nav-link" onclick="toggleMenu()">الفنانين</a>
+            <a href="#streamers" class="nav-link" onclick="toggleMenu()">البث المباشر</a>
+            <a href="#videos" class="nav-link" onclick="toggleMenu()">الفيديوهات</a>
         </nav>
     </div>
     
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()" aria-hidden="true"></div>
     
-    <main class="main-content">
+    <main class="main-content" role="main">
         <section id="artists" class="fade-in">
-            <h2 class="section-title">فنانينا</h2>
+            <h1 class="section-title">فنانينا</h1>
             
             <div class="artists-container">
                 <div class="artist-card fade-in delay-1">
                     <div class="artist-image-container">
-                        <img src="images/artist.jpg" alt="BIG A" class="artist-image">
+                        <img src="images/artist.jpg" alt="BIG A" class="artist-image" loading="lazy" width="280" height="200">
                     </div>
                     <div class="artist-info">
-                        <h3 class="artist-name">BIG A</h3>
+                        <h2 class="artist-name">BIG A</h2>
                         <span class="artist-role">فنان راب</span>
                         <p class="artist-bio">فنان راب موهوب يتميز بأسلوبه الفريد وكلماته المؤثرة</p>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/callme_big_a" class="social-link instagram-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/callme_big_a" class="social-link instagram-link" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام BIG A">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </a>
-                            <a href="https://www.youtube.com/@BIG_A_off" class="social-link youtube-link" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                            <a href="https://www.youtube.com/@BIG_A_off" class="social-link youtube-link" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب BIG A">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -617,18 +680,18 @@
                 
                 <div class="artist-card fade-in delay-2">
                     <div class="artist-image-container">
-                        <img src="images/mirv48.jpg" alt="mirv48" class="artist-image">
+                        <img src="images/mirv48.jpg" alt="mirv48" class="artist-image" loading="lazy" width="280" height="200">
                     </div>
                     <div class="artist-info">
-                        <h3 class="artist-name">mirv48</h3>
+                        <h2 class="artist-name">mirv48</h2>
                         <span class="artist-role">فنان راب</span>
                         <p class="artist-bio">صاحب الأسلوب المميز والإيقاعات الجذابة</p>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/mirv48" class="social-link instagram-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/mirv48" class="social-link instagram-link" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام mirv48">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </a>
-                            <a href="https://youtube.com/@mirv48" class="social-link youtube-link" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                            <a href="https://youtube.com/@mirv48" class="social-link youtube-link" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب mirv48">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -636,18 +699,18 @@
 
                 <div class="artist-card fade-in delay-1">
                     <div class="artist-image-container">
-                        <img src="images/shaoline.jpg" alt="Shaoline" class="artist-image">
+                        <img src="images/shaoline.jpg" alt="Shaoline" class="artist-image" loading="lazy" width="280" height="200">
                     </div>
                     <div class="artist-info">
-                        <h3 class="artist-name">Shaoline</h3>
+                        <h2 class="artist-name">Shaoline</h2>
                         <span class="artist-role">فنان راب</span>
                         <p class="artist-bio">فنان مميز بأسلوبه الخاص</p>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/shaolineee1/" class="social-link instagram-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/shaolineee1/" class="social-link instagram-link" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام Shaoline">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </a>
-                            <a href="https://www.youtube.com/@Shaolineee" class="social-link youtube-link" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                            <a href="https://www.youtube.com/@Shaolineee" class="social-link youtube-link" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب Shaoline">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -655,18 +718,18 @@
 
                 <div class="artist-card fade-in delay-2">
                     <div class="artist-image-container">
-                        <img src="images/aessa.jpg" alt="Aessa" class="artist-image">
+                        <img src="images/aessa.jpg" alt="Aessa" class="artist-image" loading="lazy" width="280" height="200">
                     </div>
                     <div class="artist-info">
-                        <h3 class="artist-name">Aessa</h3>
+                        <h2 class="artist-name">Aessa</h2>
                         <span class="artist-role">فنان راب</span>
                         <p class="artist-bio">موهبة جديدة في عالم الراب</p>
                         <div class="social-links">
-                            <a href="https://www.instagram.com/aessa.17" class="social-link instagram-link" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                            <a href="https://www.instagram.com/aessa.17" class="social-link instagram-link" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام Aessa">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
                             </a>
-                            <a href="https://www.youtube.com/@Aessa" class="social-link youtube-link" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                            <a href="https://www.youtube.com/@Aessa" class="social-link youtube-link" target="_blank" rel="noopener noreferrer" aria-label="يوتيوب Aessa">
+                                <i class="fab fa-youtube" aria-hidden="true"></i>
                             </a>
                         </div>
                     </div>
@@ -679,53 +742,53 @@
             
             <div class="streamers-container">
                 <div class="streamer-card fade-in delay-2">
-                    <img src="images/streamers/ilyaselmaliki.jpg" alt="ilyaselmaliki" class="streamer-avatar">
+                    <img src="images/streamers/ilyaselmaliki.jpg" alt="ilyaselmaliki" class="streamer-avatar" loading="lazy" width="100" height="100">
                     <h3 class="streamer-name">ilyaselmaliki</h3>
                     <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <span>Kick</span>
                     </div>
-                    <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank">مشاهدة</a>
+                    <a href="https://kick.com/ilyaselmaliki" class="streamer-btn" target="_blank" rel="noopener noreferrer">مشاهدة</a>
                 </div>
                 
                 <div class="streamer-card fade-in delay-1">
-                    <img src="images/streamers/vodka.jpg" alt="vodkafunky" class="streamer-avatar">
+                    <img src="images/streamers/vodka.jpg" alt="vodkafunky" class="streamer-avatar" loading="lazy" width="100" height="100">
                     <h3 class="streamer-name">vodkafunky</h3>
                     <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <span>Kick</span>
                     </div>
-                    <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank">مشاهدة</a>
+                    <a href="https://kick.com/vodkafunky" class="streamer-btn" target="_blank" rel="noopener noreferrer">مشاهدة</a>
                 </div>
                 
                 <div class="streamer-card fade-in">
-                    <img src="images/streamers/bougassa.jpg" alt="Bougassaa" class="streamer-avatar">
+                    <img src="images/streamers/bougassa.jpg" alt="Bougassaa" class="streamer-avatar" loading="lazy" width="100" height="100">
                     <h3 class="streamer-name">Bougassaa</h3>
                     <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <span>Kick</span>
                     </div>
-                    <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank">مشاهدة</a>
+                    <a href="https://kick.com/bougassaa" class="streamer-btn" target="_blank" rel="noopener noreferrer">مشاهدة</a>
                 </div>
                 
                 <div class="streamer-card fade-in delay-1">
-                    <img src="images/streamers/nahoule.jpg" alt="Nahoule82k" class="streamer-avatar">
+                    <img src="images/streamers/nahoule.jpg" alt="Nahoule82k" class="streamer-avatar" loading="lazy" width="100" height="100">
                     <h3 class="streamer-name">Nahoule82k</h3>
                     <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <span>Kick</span>
                     </div>
-                    <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank">مشاهدة</a>
+                    <a href="https://kick.com/nahoule82k" class="streamer-btn" target="_blank" rel="noopener noreferrer">مشاهدة</a>
                 </div>
                 
                 <div class="streamer-card fade-in delay-2">
-                    <img src="images/streamers/toto.jpg" alt="El Grandé Toto" class="streamer-avatar">
+                    <img src="images/streamers/toto.jpg" alt="El Grandé Toto" class="streamer-avatar" loading="lazy" width="100" height="100">
                     <h3 class="streamer-name">El Grandé Toto</h3>
                     <div class="streamer-platform">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <span>Kick</span>
                     </div>
-                    <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank">مشاهدة</a>
+                    <a href="https://kick.com/elgrandetotoff" class="streamer-btn" target="_blank" rel="noopener noreferrer">مشاهدة</a>
                 </div>
             </div>
         </section>
@@ -734,11 +797,12 @@
             <h2 class="section-title">أحدث الفيديوهات</h2>
             
             <div class="videos-container">
-                <a href="https://www.youtube.com/watch?v=nVYAEtBvmgA" class="video-card fade-in" target="_blank">
+                <a href="https://www.youtube.com/watch?v=nVYAEtBvmgA" class="video-card fade-in" target="_blank" rel="noopener noreferrer">
                     <div class="video-thumbnail">
-                        <img src="images/artist.jpg" alt="BIG A">
+                        <img src="images/artist.jpg" alt="BIG A - أحدث أغنية 2024" loading="lazy" width="300" height="169">
                         <div class="play-icon">
-                            <i class="fas fa-play"></i>
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                            <span class="sr-only">تشغيل الفيديو</span>
                         </div>
                     </div>
                     <div class="video-info">
@@ -750,11 +814,12 @@
                     </div>
                 </a>
                 
-                <a href="https://www.youtube.com/watch?v=YED2ShSBU10" class="video-card fade-in delay-1" target="_blank">
+                <a href="https://www.youtube.com/watch?v=YED2ShSBU10" class="video-card fade-in delay-1" target="_blank" rel="noopener noreferrer">
                     <div class="video-thumbnail">
-                        <img src="images/mirv48.jpg" alt="mirv48">
+                        <img src="images/mirv48.jpg" alt="mirv48 - كليب جديد" loading="lazy" width="300" height="169">
                         <div class="play-icon">
-                            <i class="fas fa-play"></i>
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                            <span class="sr-only">تشغيل الفيديو</span>
                         </div>
                     </div>
                     <div class="video-info">
@@ -766,88 +831,126 @@
                     </div>
                 </a>
                 
-                <a href="https://www.youtube.com/watch?v=GKdfyp3-sTA" class="video-card fade-in delay-2" target="_blank">
+                <a href="https://www.youtube.com/watch?v=GKdfyp3-sTA" class="video-card fade-in delay-2" target="_blank" rel="noopener noreferrer">
                     <div class="video-thumbnail">
-                        <img src="images/shaoline.jpg" alt="Shaoline">
+                        <img src="images/shaoline.jpg" alt="Shaoline - BARD & SKHON" loading="lazy" width="300" height="169">
                         <div class="play-icon">
-                            <i class="fas fa-play"></i>
+                            <i class="fas fa-play" aria-hidden="true"></i>
+                            <span class="sr-only">تشغيل الفيديو</span>
                         </div> 
                     </div>
                     <div class="video-info">
                         <h3 class="video-title">Shaoline - BARD & SKHON</h3>
                         <div class="video-meta">
                             <span>50K مشاهدة</span>
-                            <span>اضغط،</span>
+                            <span>منذ شهر</span>
                         </div>
                     </div>
                 </a>
-                 <a href="https://discord.gg/bobonyfamily" class="watermark" target="_blank">Bobony Family</a>
-             </div>
+                <a href="https://discord.gg/bobonyfamily" class="watermark" target="_blank" rel="noopener noreferrer">Bobony Family</a>
+            </div>
         </section>
     </main>
     
-    <footer class="footer fade-in delay-2">
+    <footer class="footer fade-in delay-2" role="contentinfo">
         <div class="footer-links">
             <a href="#" class="footer-link">الصفحة الرئيسية</a>
             <a href="#artists" class="footer-link">الفنانين</a>
             <a href="#streamers" class="footer-link">البث المباشر</a>
             <a href="#videos" class="footer-link">الفيديوهات</a>
         </div>
-        <p class="copyright">© 2024 مجتمع الراب. جميع الحقوق محفوظة.</p>
-        <a href="https://www.instagram.com/zakariae_lahmidi/" class="designer-instagram" target="_blank">
-            <i class="fab fa-instagram"></i>
+        <p class="copyright">© <span id="current-year">2024</span> مجتمع الراب. جميع الحقوق محفوظة.</p>
+        <a href="https://www.instagram.com/zakariae_lahmidi/" class="designer-instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
             تابع مصمم الموقع على إنستغرام
         </a>
     </footer>
     
     <script>
+        // تهيئة السنة الحالية
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // تحسين القائمة المتنقلة
         function toggleMenu() {
             const mobileMenu = document.getElementById('mobileMenu');
             const overlay = document.getElementById('overlay');
+            const menuToggle = document.querySelector('.menu-toggle');
             
-            mobileMenu.classList.toggle('active');
+            const isOpen = mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
             
-            if (mobileMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+            
+            // إغلاق القائمة عند النقر على روابطها
+            document.querySelectorAll('.mobile-menu .nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                });
+            });
         }
         
+        // تحسين التنقل السلس
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
                 
+                const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // تحديث URL بدون إعادة تحميل الصفحة
+                    history.pushState(null, null, targetId);
                 }
             });
         });
         
+        // تحسين ظهور العناصر عند التمرير
         const fadeElements = document.querySelectorAll('.fade-in');
         
         const fadeInObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
+                    fadeInObserver.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.1 });
         
         fadeElements.forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             fadeInObserver.observe(element);
         });
+
+        // تحميل الصور عند الحاجة فقط
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[loading="lazy"]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+            });
+        }
+
+        // تسجيل Service Worker لتطبيق PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => console.log('ServiceWorker registered'))
+                    .catch(err => console.log('ServiceWorker registration failed: ', err));
+            });
+        }
     </script>
 </body>
 </html>
